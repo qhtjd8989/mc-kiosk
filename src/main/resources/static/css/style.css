@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@300;400;500;700&family=Quicksand:wght@300;400;500;700&display=swap');
+
+* {
+    font-family: 'Quicksand','Nanum Gothic', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    
+    box-sizing: border-box;
+    
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: #dbdbdb;
+}
+
+
+#container {
+    width: 900px;
+    height: 1600px;
+
+    background-color: white;
+}
+
+ul, a {
+    list-style-type: none;
+}
+
+a {
+    color: #141414;
+    text-decoration: none;
+}
+
+input, textarea {
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+button {
+    cursor: pointer;
+}

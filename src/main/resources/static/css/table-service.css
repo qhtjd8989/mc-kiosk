@@ -1,0 +1,107 @@
+#container {
+    display: flex;
+    flex-direction: column;
+
+    padding: 70px 80px 0px;
+
+    position: relative;
+}
+
+.title {  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-text {
+    font-size: 80px;
+}
+
+main {
+    height: 1050px;
+}
+
+.select-service {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 100px;
+}
+
+.service-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid black;
+
+    box-shadow: 0px 4px 15px;
+
+    padding: 30px 20px 0px;
+
+    width: 340px;
+    height: 340px;
+}
+
+.service-box span {
+    font-size: 30px;
+}
+
+.service-box img {
+    width: 270px;
+    height: 250px;
+    background-color: black;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.back-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    margin-bottom: 40px;
+
+    width: 100%;
+    height: 70px;
+
+    font-size: 25px;
+
+    background-color: white;
+}
+
+.footer-menu {
+    width: 600px;
+
+    position: absolute;
+    right: 80px;
+    bottom: 40px;
+}
+
+.footer-menu > div {
+    margin-bottom: 30px;
+}
+
+.load-main-page-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 298px;
+    height: 50px;
+
+    background-color: white;
+}
+
+.help-menu-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 298px;
+    height: 50px;
+
+    background-color: white;
+}

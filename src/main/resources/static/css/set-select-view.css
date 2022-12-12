@@ -1,0 +1,403 @@
+#container {
+    position: relative;
+}
+
+main {
+    display: flex;
+}
+
+article {
+    height: 1350px;
+}
+
+article:first-child {
+    width: 190px;
+}
+
+.food-menus {
+    display: flex;
+    flex-direction: column;
+
+    width: 710px;
+    padding: 100px 0px 40px 40px ;
+}
+
+/*======== nav 메뉴 ========*/
+
+
+.nav-menu {
+    border-right: 2px solid #dbdbdb;
+    height: 1350px;
+}
+
+.nav-logo {
+    height: 160px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.nav-logo h1 img {
+    width: 120px;
+    height: 90px;
+}
+
+nav > ul > li {
+    /* height: 73px; */
+    border-bottom: 2px solid #dbdbdb;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 10px;
+}
+
+.food-menu-hovers li:hover {
+    cursor: pointer; 
+}
+
+nav li img {
+    width: 30px;
+    height: 30px;
+    
+    margin-right: 30px;
+}
+
+.nav-icons {
+    color: rgb(222, 222, 24);
+    margin-right: 28px;
+}
+
+nav li span {
+    font-size: 17px;
+}
+/*======== 메뉴 메인 ========*/
+
+
+section {
+    width: 100%;
+}
+
+section:first-child {
+    margin-bottom: 50px;
+}
+
+.menu-title {
+    margin-bottom: 10px;
+}
+
+.burger-type {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    margin-bottom: 50px;
+}
+
+.burger-type li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 150px;
+    height: 50px;
+    border: 1px solid #dbdbdb;
+    border-radius: 15px;
+    
+    margin: 0 10px 10px 0;
+}
+
+.food-type li.active, .food-type li:hover {
+    cursor: pointer;
+    box-shadow: inset 1px 1px 6px 1px #dbdbdb;
+}
+
+h2 {
+    font-size: 38px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.learn-menu-btns-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.learn-menu-btns-list li {
+    border: 2px solid #dbdbdb;
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px -5px #dbdbdb;
+
+    background-color: white;
+    width: 310px;
+    height: 220px;
+
+    margin: 5px;
+
+    padding: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.learn-menu-btns-list li:last-child:hover {
+    transform: none;
+    transition: none;
+    cursor: auto;
+}
+
+.learn-menu-btns {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.learn-menu-btns span {
+    font-size: 30px;
+}
+
+.learn-menu-btns img {
+    width: 100px;
+    height: 100px;
+}
+
+.recommend-menu-icons {
+    color: rgb(222, 222, 24);
+}
+
+.learn-menu-btns div {
+    display: flex;
+    flex-direction: column;
+}
+
+.learn-menu-btns-list li:last-child {
+    width: 630px;
+    height: 240px;
+
+    padding: 0;
+
+    overflow: hidden;
+}
+
+.learn-menu-btns-list li:last-child img {
+    width: 630px;
+    height: 240px;
+}
+
+.food-menu-btns {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.popular-menu-btns {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    height: 340px;
+}
+
+.burger-menu-btns {
+    height: 970px;
+}
+
+.food-menu-btns li {
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+
+    padding: 20px;
+
+    width: 205px;
+    height: 270px;
+
+    margin: 0 10px 10px 0;
+}
+
+.food-menu-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 190px;
+}
+
+
+.food-menu-btns li img {
+    width: 130px;
+    height: 125px;
+
+}
+
+.food-menu-price {
+    display: flex;
+    justify-content: space-between;
+    width: 115px;
+}
+
+.food-menu-price p:first-child {
+    font-weight: 700;
+}
+
+
+
+/* 하단 */
+footer {
+    width: 100%;
+    height: 250px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.qr-code-box {
+    width: 350px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.qr-code {
+    width: 200px;
+    height: 220px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    background-color: rgb(222, 222, 24);
+
+    padding: 20px;
+}
+
+
+.qr-code p:last-child {
+    font-weight: 700;
+}
+
+.fa-qrcode {
+    margin-bottom: 10px;
+}
+
+.fa-chevron-down {
+    margin-top: 10px;
+}
+
+.cart-info {
+    width: 550px;
+
+    padding-top: 30px;
+}
+
+.order-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    width: 490px;
+
+    margin-bottom: 20px;
+}
+
+.order-list {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    width: 250px;
+}
+
+.order-total-info {
+    position: relative;
+}
+
+.order-total-info img {
+    width: 30px;
+    height: 50px;    
+}
+
+.order-total-count {
+    width: 17px;
+    height: 17px;
+    background-color: red;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 0;
+    right: -7px;
+}
+
+.order-total-count p {
+    width: 18px;
+    height: 16px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+.order-total-price {
+    width: 190px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.order-total-price span{
+    font-size: 35px;
+}
+
+.order-history {
+    width: 250px;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+.footer-menu {
+    width: 500px;
+
+    position: absolute;
+    right: 50px;
+    bottom: 40px;
+}
+
+.footer-menu > div {
+    margin-bottom: 30px;
+}
+
+.load-main-page-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 248px;;
+    height: 40px;
+
+    background-color: white;
+}
+
+.help-menu-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 248px;;
+    height: 40px;
+
+    background-color: white;
+}
+
+.notice-span {
+    font-size: 12px;
+}

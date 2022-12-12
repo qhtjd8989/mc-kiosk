@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니 추가</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/shopping-basket-add-view.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://kit.fontawesome.com/87ed282d9d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div class="logo-div">
+                <img class="logo-img" src="/static/images/logo/logo.png" alt="logo">
+            </div>
+            <button class="nutritioin-information-button">영양정보</button>
+        </header>
+        <main>
+            <div class="main-content">
+                <div class="menu-information-div">
+                    <p>불고기버거 세트</p>
+                    <p>￦<span class="price-span">4,500</span><span class="kcal-span">762 Kcal</span></p>
+                </div>
+                <div class="select-menu-image-div">
+                    <div class="set-menu-image">
+                        <img src="/static/images/side/french-fries.png" alt="french-fries">
+                        <img src="/static/images/drink/coca-cola-zero.png" alt="coke-zero">
+                    </div>
+                    <div class="menu-image">
+                        <img src="/static/images/hamburger/bulgogi-burger.png" alt="bulgogi-burger">
+                    </div>
+                </div>
+                <div class="modify-menu-div">
+                    <div>
+                        <div class="burger-detail-div modify-menu-informataion-div">
+                            
+                        </div>
+                    </div>
+                    <div>
+                        <div class="side-detail-div modify-menu-informataion-div">
+                            
+                        </div>
+                        <div class="modify-button-div">
+                            <button class="modify-button" type="button">수정</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="drink-detail-div modify-menu-informataion-div">
+                            
+                        </div>
+                        <div class="modify-button-div">
+                            <button class="modify-button" type="button">수정</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="amount-modify-div">
+                    <button class="minus-button disable-amount-button" type="button">-</button>
+                    <div class="amount-div">
+                        <span class="amount-detail-span">1</span>
+                    </div>
+                    <button class="plus-button" type="button">+</button>
+                </div>
+                <div class="request-div">
+                    <div>
+                        <button class="cancel-button" type="button">취소</button>
+                        <button class="shopping-vasket-add-button" type="button">장바구니 추가</button>
+                    </div>
+                    <div class="footer-menu">
+                        <div>
+                            <button class="load-main-page-button" type="button">처음으로</button>
+                            <button class="help-menu-button" type="button">
+                                <i class="fa-solid fa-wheelchair"></i>
+                                도움기능
+                            </button>
+                        </div>
+                        <span class="notice-span">
+                            일일 영양 권장량은 보통 2,000 칼로리이지만 필요한 칼로리는 다를 수 있습니다. 요청시 추가 영양정보를 제공해 드립니다.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div> 
+    <div class="main-menu-modal-view visible">
+        <div class="menu-modal-view">
+            <i class="fa-solid fa-xmark cancel-mark"></i>
+            <ul class="menu-ul">
+                
+            </ul>
+        </div>
+    </div>
+    <script src="/static/js/shopping-basket-add-view.js"></script>
+</body>
+</html>

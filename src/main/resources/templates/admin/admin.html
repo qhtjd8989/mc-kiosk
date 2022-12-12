@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/admin/admin.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <!-- <div id="container"> -->
+        <main>
+            <div class="admin-main">
+                <div class="product">
+                    <select class="product-input product-type">
+                        <!-- <option value="none" selected>종류</option> -->
+                        <option value="burger">burger</option>
+                        <option value="side">side</option>
+                        <option value="drink">drink</option>
+                        <option value="dessert">dessert</option>
+                    </select>
+                    <span class="mc-morning-check mc-morning-visible">
+                        <input type="checkbox" name="radio-check" class="product-input mc-morning">맥모닝
+                        <input type="checkbox" name="radio-check" class="product-input burger">버거
+                    </span>
+                    <select class="product-input burger-type burger-visible">
+                        <option value="1">beef</option>
+                        <option value="2">seafood</option>
+                        <option value="3">chicken</option>
+                    </select>
+                    <select class="product-input size-type size-visible">
+                        <option value="none" selected>사이즈</option>
+                        <option value="none">none</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <select class="product-input drink-type drink-visible">
+                        <option value="1">음료</option>
+                        <option value="2">커피</option>
+                    </select>
+                    <span class="only-mc-morning-check only-mc-morning-visible">
+                        <input type="checkbox" name="radio-check" class="product-input only-mc-morning">맥모닝
+                    </span>
+                    
+                </div>
+                <input type="text" class="product-input" placeholder="name">
+                <input type="text" class="product-input" placeholder="price">
+                <input type="text" class="product-input" placeholder="kcal">
+                
+                <form enctype="multipart/form-data">
+                    <div class="product-img-inputs">
+                        <label>상품 이미지</label>
+                        <button type="button" class="add-button">추가</button>
+                        <input type="file" class="file-input" name="file" multiple>
+                    </div>
+                </form>
+                <div class="product-images">
+                    
+                </div>
+                <button type="button" class="submit-button product-button">등록하기</button>
+            </div>
+        </main>
+    <!-- </div>  -->
+    <script src="/static/js/admin/admin.js"></script>
+</body>
+</html>

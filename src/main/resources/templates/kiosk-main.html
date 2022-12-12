@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>main</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/kiosk-main.css">
+  <script src="https://kit.fontawesome.com/08c0ae04a4.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <main>
+      <article>
+        <div class="nav-menu">
+          <div class="nav-logo">
+            <h1>
+              <img src="/static/images//logo.png" alt="">
+            </h1>
+          </div>
+          <div>
+            <nav>
+              <ul class="hovers">
+                <li>
+                  <i class="fa-solid fa-house nav-icons fa-2x"></i>
+                  <span>홈</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-star fa-solid fa-2x nav-icons"></i>
+                  <span>추천메뉴</span>
+                </li>
+                <li class="burger">
+                  <img src="/image/images/nav/burger.png" alt="">
+                  <span>버거</span>
+                </li>
+                <li class="side">
+                  <img src="/image/images/nav/side.png" alt="">
+                  <span>사이드</span>
+                </li>
+                <li class="coffee">
+                  <img src="/image/images/nav/coffee.png" alt="">
+                  <span>커피</span>
+                </li>
+                <li class="dessert">
+                  <img src="/image/images/nav/dessert.png" alt="">
+                  <span>디저트</span>
+                </li>
+                <li class="drink">
+                  <img src="/image/images/nav/drink.png" alt="">
+                  <span>음료</span>
+                </li>
+                <li class="mc-morning">
+                  <img src="/image/images/nav/bacon-egg-mc-muffin.png" alt="">
+                  <span>맥모닝</span>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </article>
+      <article class="food-menus">
+        <section class="learn-menu-info">
+          <div class="menu-title">
+            <h2>메뉴 알아보기</h2>
+          </div>
+          <ul class="learn-menu-btns-list hovers">
+            <li>
+              <div class="learn-menu-btns">
+                <span>추천메뉴</span>
+                <i class="fa-solid fa-star fa-solid fa-5x recommend-menu-icons"></i>
+              </div>
+            </li>
+            <li>
+              <div class="learn-menu-btns">
+                <span>버거&세트</span>
+                <img src="/static/images//nav/burger.png" alt="">
+              </div>
+            </li>
+            <li>
+              <div class="learn-menu-btns">
+                <div>
+                  <span>이달의</span>
+                  <span>해피스낵</span>
+                </div>
+                <img src="/static/images//nav/happy-snack.png" alt="">
+              </div>
+            </li>
+            <li>
+              <div class="learn-menu-btns">
+                <span>커피</span>
+                <img src="/static/images//nav/coffee.png" alt="">
+              </div>
+            </li>
+            <li>
+              <img src="/static/images//main/banner.png" alt="">
+            </li>
+          </ul>
+        </section>
+        <section class="food-menu-info">
+          <div class="menu-title">
+            <h2>인기 메뉴</h2>
+          </div>
+          <form action="">
+            <ul class="food-menu-btns food-menu-hovers popular-menu-btns">
+              <li>
+                <div class="food-menu-img">
+                  <img src="/static/images//main/bigmac.png" alt="">
+                </div>
+                <div>
+                  <p>빅맥</p>
+                  <div class="food-menu-price">
+                    <p>₩ 4,900</p>
+                    <p>583 Kcal</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </form>
+        </section>
+      </article>
+      <article class="food-menus">
+        <div class="menu-title">
+          <h2>추천메뉴</h2>
+        </div>
+        <form action="">
+          <ul class="food-menu-btns food-menu-hovers">
+            <li>
+              <div class="food-menu-img">
+                <img src="/static/images//main/bigmac.png" alt="">
+              </div>
+              <div>
+                <p>빅맥</p>
+                <div class="food-menu-price">
+                  <p>₩ 4,900</p>
+                  <p>583 Kcal</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </form>
+      </article>
+      <article class="food-menus">
+        <div class="menu-title">
+          <h2>버거</h2>
+          <p>아래에서 세부메뉴를 확인하세요</p>
+        </div>
+        <ul class="burger-type food-type">
+          <li>
+            <p>전체</p>
+          </li>
+          <li>
+            <p>비프</p>
+          </li>
+          <li>
+            <p>치킨</p>
+          </li>
+          <li>
+            <p>씨푸드</p>
+          </li>
+        </ul>
+        <form action="">
+          <ul class="food-menu-btns food-menu-hovers burger-menu-btns">
+            <li>
+              <div class="food-menu-img">
+                <img src="/static/images//main/bigmac.png" alt="">
+              </div>
+              <div>
+                <p>빅맥</p>
+                <div class="food-menu-price">
+                  <p>₩ 4,900</p>
+                  <p>583 Kcal</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </form>
+      </article>
+      <article class="food-menus">
+        <div class="menu-title">
+          <h2>사이드</h2>
+        </div>
+        <form action="">
+          <ul class="food-menu-btns food-menu-hovers">
+            <li>
+              <div class="food-menu-img">
+                <img src="/static/images//main/bigmac.png" alt="">
+              </div>
+              <div>
+                <p>빅맥</p>
+                <div class="food-menu-price">
+                  <p>₩ 4,900</p>
+                  <p>583 Kcal</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </form>
+      </article>
+      <article class="food-menus">
+        <div class="menu-title">
+          <h2>커피</h2>
+        </div>
+        <form action="">
+          <ul class="food-menu-btns food-menu-hovers">
+            <li>
+              <div class="food-menu-img">
+                <img src="/static/images//main/bigmac.png" alt="">
+              </div>
+              <div>
+                <p>빅맥</p>
+                <div class="food-menu-price">
+                  <p>₩ 4,900</p>
+                  <p>583 Kcal</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </form>
+      </article>
+      <article class="food-menus">
+        <div class="menu-title">
+          <h2>디저트</h2>
+        </div>
+        <form action="">
+          <ul class="food-menu-btns food-menu-hovers">
+            <li>
+              <div class="food-menu-img">
+                <img src="/static/images//main/bigmac.png" alt="">
+              </div>
+              <div>
+                <p>빅맥</p>
+                <div class="food-menu-price">
+                  <p>₩ 4,900</p>
+                  <p>583 Kcal</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </form>
+      </article>
+      <article class="food-menus">
+        <div class="menu-title">
+          <h2>음료</h2>
+        </div>
+        <form action="">
+          <ul class="food-menu-btns food-menu-hovers">
+            <li>
+              <div class="food-menu-img">
+                <img src="/static/images//main/bigmac.png" alt="">
+              </div>
+              <div>
+                <p>빅맥</p>
+                <div class="food-menu-price">
+                  <p>₩ 4,900</p>
+                  <p>583 Kcal</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </form>
+      </article>
+      <article class="food-menus">
+        <div class="menu-title">
+          <h2>맥모닝</h2>
+        </div>
+        <form action="">
+          <ul class="food-menu-btns food-menu-hovers">
+            <li>
+              <div class="food-menu-img">
+                <img src="/static/images//main/bigmac.png" alt="">
+              </div>
+              <div>
+                <p>빅맥</p>
+                <div class="food-menu-price">
+                  <p>₩ 4,900</p>
+                  <p>583 Kcal</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </form>
+      </article>
+    </main>
+    <footer>
+      <div class="qr-code-box">
+        <div class="qr-code">
+          <i class="fa-solid fa-qrcode fa-6x"></i>
+          <p>포인트를 적립하세요</p>
+          <p>결제 전 선택 필수</p>
+          <i class="fa-solid fa-chevron-down fa-2x"></i>
+        </div>
+      </div>
+      <div class="cart-info">
+        <div class="order-menu">
+          <div class="order-list">
+            <div class="order-total-info">
+              <img src="/static/images//main/pack.png" alt="">
+              <div class="order-total-count">
+                <p>0</p>
+              </div>
+            </div>
+            <div class="order-total-price">
+              <span class="total-price">₩0</span>
+            </div>
+          </div>
+          <button type="button" class="order-history">주문내역</button>
+        </div>
+        <div class="footer-menu">
+          <div>
+              <button class="load-main-page-button" type="button">처음으로</button>
+              <button class="help-menu-button" type="button">
+                  <i class="fa-solid fa-wheelchair"></i>
+                  도움기능
+              </button>
+          </div>
+          <span class="notice-span">
+              일일 영양 권장량은 보통 2,000 칼로리이지만 필요한 칼로리는 다를 수 있습니다. 요청시 추가 영양정보를 제공해 드립니다.
+          </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="modal-body visible">
+    <div class="show-add-shopping-basket-modal-view">
+      <h1>장바구니에 담으시겠습니까?</h1>
+      <div class="request-button">
+        <button type="button">담기</button>
+        <button type="button">취소</button>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/kiosk-main.js"></script>
+</body>
+</html>

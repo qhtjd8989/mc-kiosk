@@ -1,0 +1,143 @@
+h2 {
+  font-size: 35px;
+  font-weight: 700;
+  padding-bottom: 30px;
+}
+
+button {
+  border: 1px solid #dbdbdb;
+  background-color: white;
+}
+
+#container {
+  padding: 50px;
+  position: relative;
+}
+
+.modal {
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-select-menu-image-div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.price-p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.select-menu-image-div {
+  border: 1px solid #dbdbdb;
+  height: 300px;
+}
+
+.set-menu-image, .sigle-menu-image {
+  width: 250px;
+  height: 250px;
+
+  position: relative;
+
+  cursor: pointer;
+}
+
+.set-menu-image img {
+  width: 130px;
+  height: 130px;
+
+  position: absolute;
+}
+
+.set-menu-image img:nth-child(1) {
+  top: 30px;
+  left: 10px;
+
+}
+
+.set-menu-image img:nth-child(2) {
+  top: 30px;
+  right: 10px;
+}
+
+.set-menu-image img:nth-child(3) {
+  bottom: 35px;
+  left: 60px;
+}
+
+.sigle-menu-image img {
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+.select-menu-image-div span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.location-back-button {
+  width: 757px;
+  height: 30px;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.type-box {
+  display: none;
+
+  width: 900px;
+  height: 1600px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.type {
+  height: 800px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.type-content {
+  width: 600px;
+  height: 500px;
+
+  border: 1px solid #dbdbdb;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.type-content p {
+  font-size: 30px;
+}
+
+.type-btns {
+  margin-top: 20px;
+}
+
+.type-btns button {
+  width: 220px;
+  height: 50px;
+
+  font-size: 20px;
+}
+
+.btns button:hover {
+  background-color: #dbdbdb;
+  transition: 0.3s;
+  color: white;
+}

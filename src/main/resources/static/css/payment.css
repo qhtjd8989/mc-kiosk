@@ -1,0 +1,100 @@
+#container{
+    padding: 50px;
+    
+    position: relative;
+}
+
+#logo img{
+    margin-bottom: 30px;
+    width: 50px;
+    height: 50px;
+}
+
+h2{
+    font-size: 35px;
+    font-weight: 700;
+    padding-bottom: 30px;
+}
+
+.pay-button{
+    width: 250px;
+    height: 250px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.button{
+    width: 505px;
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+#button img{
+    width: 200px;
+    height: 200px;
+}
+
+.back-button{
+    margin-top: 150px;
+    width: 505px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: 500;
+
+    background-color: #00000000;
+}
+
+#reset-button button{
+    margin-top: 100px;
+    width: 250px;
+    height: 30px;
+}
+
+.footer-menu {
+    width: 500px;
+
+    position: absolute;
+    right: 50px;
+    bottom: 40px;
+}
+
+.footer-menu > div {
+    margin-bottom: 30px;
+}
+
+.load-main-page-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 248px;;
+    height: 40px;
+
+    background-color: white;
+}
+
+.help-menu-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 248px;;
+    height: 40px;
+
+    background-color: white;
+}
+
+.notice-span {
+    font-size: 12px;
+}
+
+.pay-button {
+    border: 1px solid #dbdbdb;
+
+    background-color: #00000000;
+}
+
+.pay-button img {
+    width: 200px;
+    height: 200px;
+}
+

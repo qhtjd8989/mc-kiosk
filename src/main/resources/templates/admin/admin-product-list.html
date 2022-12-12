@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/admin/admin-product-list.css">
+    <script src="https://kit.fontawesome.com/08c0ae04a4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <main>
+            <div class="admin">
+                <h1 class="admin-title">ADMIN PRODUCT LIST</h1>
+                <div class="admin-container">
+                    <section class="admin-main">
+                        <div class="list-header">
+                            <div class="category-select">
+                                <select class="product-input">
+                                    <option value="ALL" selected>전체 상품</option>
+                                    <option value="burger">햄버거</option>
+                                    <option value="side">사이드</option>
+                                    <option value="drink">음류수</option>
+                                    <option value="dessert">디저트</option>
+                                </select>
+                            </div>
+                            <!-- <div class="product-search">
+                                <input type="text" class="product-input" placeholder="상품명">
+                                <button type="button" class="search-button black-button">검색</button>
+                            </div> -->
+                        </div>
+                        
+                        <table class="product-list">
+                            <thead>
+                                <tr>
+                                    <th>상품종류</th>
+                                    <th>상품명</th>
+                                    <th>가격</th>
+                                    <th>사이즈</th>
+                                    <th>상세</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody class="list-body">
+                                <tr>
+                                    <th>햄버거</th>
+                                    <th>불고기 버거</th>
+                                    <th>2,000원</th>
+                                    <th>L</th>
+                                    <td><button type="button" class="list-button detail-button"><i class="fa-regular fa-file-lines"></i></button></td>
+                                    <td><button type="button" class="list-button delete-button"><i class="fa-regular fa-trash-can"></i></button></td>
+                                </tr>
+                                <tr class="menu-detail visible">
+                                    <td colspan="8">
+                                        <table class="product-info">
+                                            <tr>
+                                                <td>
+                                                    <select>
+                                                        <option value="burger">햄버거</option>
+                                                        <option value="side">사이드</option>
+                                                        <option value="drink">음류수</option>
+                                                        <option value="dessert">디저트</option>
+                                                    </select>
+                                                </td>
+                                                <td><input type="text" class="product-input" value="productDtl.name" placeholder="이름"></td>
+                                                <td><input type="text" class="product-input" value="productDtl.price" placeholder="가격"></td>
+                                                <td><input type="text" class="product-input" value="productDtl.kcal" placeholder="칼로리"></td>
+                                                <td><input type="text" class="product-input" value="productDtl.size" placeholder="사이즈"></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5">
+                                                    <form enctype="multipart/form-data">
+                                                        <div class="product-img-inputs">
+                                                            <label>상품 이미지</label>
+                                                            <button type="button" class="add-button">추가</button>
+                                                            <input type="file" class="file-input product-invisible" name="file">
+                                                        </div>
+                                                    </form>
+                                                    <div class="product-images">
+                                
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5">
+                                                    <button type="button" class="black-button update-button">수정하기</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="page-btn-box">
+                <button type="button" class="page-button">&lt;</button>
+                <button type="button" class="page-button">1</button>
+                <button type="button" class="page-button">2</button>
+                <button type="button" class="page-button">3</button>
+                <button type="button" class="page-button">4</button>
+                <button type="button" class="page-button">5</button>
+                <button type="button" class="page-button">&gt;</button>
+            </div>
+        </footer>
+    </div>
+    <script src="/static/js/admin/admin-product-list.js"></script>
+</body>
+</html>

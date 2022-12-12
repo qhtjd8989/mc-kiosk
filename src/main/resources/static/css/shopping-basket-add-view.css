@@ -1,0 +1,330 @@
+#container {
+    padding: 50px 50px;
+    
+    position: relative;
+}
+
+header {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.logo-img {
+    width: 50px;
+}
+
+.nutritioin-information-button {
+    border: 1px solid black;
+    margin-left: 30px;
+
+    width: 200px;
+    height: 50px;
+
+    background-color: white;
+}
+
+.menu-information-div p, .menu-information-div span {
+    font-weight: 700;
+    font-size: 60px;
+}
+
+.price-span {
+    margin-right: 20px;
+}
+
+.select-menu-image-div {
+    height: 300px;
+}
+
+.select-menu-image-div div {
+    position: relative;
+}
+
+.select-menu-image-div img {
+    width: 240px;
+    height: 180px;
+
+    position: absolute;
+}
+
+.set-menu-image img:first-child {
+    left: 180px;
+
+    z-index: 2;
+}
+
+.set-menu-image img:last-child {
+    left: 380px;
+    z-index: 1;
+}
+
+.menu-image img {
+    top: 140px;
+    left: 275px;
+}
+
+.modify-menu-div {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 20px;
+
+    height: 400px;
+
+    overflow: auto;
+}
+
+.modify-menu-div > div {
+    width: 250px;
+}
+
+.modify-menu-informataion-div {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 50px;
+
+    position: relative;
+}
+
+.modify-menu-detail-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modify-menu-detail-informantion {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-name-span {
+    font-weight: 500;
+
+}
+
+.detail-kcal-span {
+    font-weight: 700;
+}
+
+.modify-menu-informataion-div img {
+    width: 100px;
+}
+
+.modify-button-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 250px;
+    height: 100px;
+}
+
+.modify-button-div button {
+    border: 1px solid black;
+    
+    /* width: 266px; */
+    height: 40px;
+
+    background-color: white;
+}
+
+.modify-button-div button:first-child {
+    margin-bottom: 10px;
+}
+
+.amount-modify-div {
+    display: flex;
+    align-items: center;
+
+    margin-top: 300px;
+}
+
+.amount-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid black;
+
+    width: 700px;
+    height: 50px;
+}
+
+.amount-detail-span, .amount-modify-div button {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.amount-modify-div button {
+    border: 1px solid black;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: white;
+}
+
+.disable-amount-button {
+    border: 1px solid #dbdbdb !important;
+
+    color: #dbdbdb;
+
+    background-color: #dbdbdb;
+
+    cursor: default;
+}
+
+.amount-modify-div button:first-child {
+    border-right: none;
+}
+
+.amount-modify-div button:last-child {
+    border-left: none;
+}
+
+.request-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-top: 20px;
+
+    height: 200px;
+}
+
+.cancel-button {
+    border: 1px solid black;
+
+    width: 195px;
+    height: 50px;
+
+    background-color: white;
+}
+
+.shopping-vasket-add-button {
+    border: 1px solid orange;
+
+    width: 600px;
+    height: 50px;
+
+    background-color: rgb(255, 208, 0);
+}
+
+
+.footer-menu {
+    width: 600px;
+
+    position: absolute;
+    right: 50px;
+    bottom: 40px;
+}
+
+.footer-menu > div {
+    margin-bottom: 30px;
+}
+
+.load-main-page-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 298px;
+    height: 50px;
+
+    background-color: white;
+}
+
+.help-menu-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 298px;
+    height: 50px;
+
+    background-color: white;
+}
+
+.main-menu-modal-view {
+    width: 900px;
+    height: 1600px;
+
+    background-color: #00000070;
+
+    position: absolute;
+    z-index: 10;
+}
+
+.menu-modal-view {
+    padding: 10px;
+
+    width: 800px;
+    height: 800px;
+
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+}
+
+.cancel-mark {
+    position: absolute;
+    right: 20px;
+
+    font-size: 40px;
+
+    cursor: pointer;
+}
+
+.menu-ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 800px;
+    max-height: 780px;
+
+    overflow: auto;
+}
+
+.menu-ul::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    margin: 40px 30px;
+
+    width: 200px;
+    height: 200px;
+
+    cursor: pointer;
+}
+
+.menu-ul .menu-image img{
+    width: 100px;
+    height: 100px;
+}
+
+.modal-menu-information-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.visible {
+    display: none;
+}

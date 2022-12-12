@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/set-select-view.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://kit.fontawesome.com/08c0ae04a4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="container">
+        <main>
+            <article>
+                <div class="nav-menu">
+                    <div class="nav-logo">
+                        <h1>
+                            <img src="/static/images//logo.png" alt="">
+                        </h1>
+                    </div>
+                    <div>
+                        <nav>
+                            <ul class="hovers">
+                                <li>
+                                    <i class="fa-regular fa-circle-check"></i>
+                                    <span>불고기버거 - 세트메뉴</span>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-circle side-i"></i>
+                                    <span>세트메뉴 사이드를 선택하세요<br>선택하세요</span>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-circle"></i>
+                                    <span>세트메뉴 음료를 <br>선택하세요</span>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-circle"></i>
+                                    <span>주문 확인하기</span>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </article>
+            <article class="food-menus">
+                <div class="menu-title">
+                    <h2>사이드</h2> 
+                </div>
+                <form>
+                    <ul class="food-menu-btns food-menu-hovers">
+                        
+                    </ul>
+                </form>
+            </article>
+        </main>
+        <footer>
+            <div class="qr-code-box">
+                <div class="qr-code">
+                    <i class="fa-solid fa-qrcode fa-6x"></i>
+                    <p>포인트를 적립하세요</p>
+                    <p>결제 전 선택 필수</p>
+                    <i class="fa-solid fa-chevron-down fa-2x"></i>
+                </div>
+            </div>
+            <div class="cart-info">
+                <div class="order-menu">
+                    <div class="order-list">
+                        <div class="order-total-info">
+                            <img src="/static/images//main/pack.png" alt="">
+                            <div class="order-total-count">
+                                <p>0</p>
+                            </div>
+                        </div>
+                        <div class="order-total-price">
+                            <span>₩0</span>
+                        </div>
+                    </div>
+                    <div class="order-history">주문내역</div>
+                </div>
+                <div class="footer-menu">
+                    <div>
+                        <button class="load-main-page-button" type="button">처음으로</button>
+                        <button class="help-menu-button" type="button">
+                            <i class="fa-solid fa-wheelchair"></i>
+                            도움기능
+                        </button>
+                    </div>
+                    <span class="notice-span">
+                        일일 영양 권장량은 보통 2,000 칼로리이지만 필요한 칼로리는 다를 수 있습니다. 요청시 추가 영양정보를 제공해 드립니다.
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/static/js/set-select-view.js"></script>
+    </body>
+</html>

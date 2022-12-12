@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kioskmake.projectkiosk.domain.menu.MenuRepository">
+
+    
+    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>> ADMIN <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   -->
+
+
+    <insert id="insertMenu" parameterType="kioskmake.projectkiosk.domain.menu.Menu">
+    	insert into
+    		<choose>
+    			<when test="menu_type == 'burger'">
+    				hamburger_table
+    			</when>
+    			<when test="menu_type == 'side'">
+    				side_menu_table
+    			</when>
+    			<when test="menu_type == 'drink'">
+    				drink_table
+    			</when>
+    			<when test="menu_type == 'dessert'">
+    				dessert_table
+    			</when>
+   			</choose>
+   		values
+   			(
+    			0,
+    			#{menu_name},
+    			#{price},
+    			#{sales},
+    			#{kcal},
+    			#{image},
+    			<choose>
+	   				<when test="menu_type == 'burger'">
+	    				<choose>
+	    					<when test="mc_morning_flag == false">
+	    						#{burger_type},
+	    					</when>
+	    					<otherwise>
+	    						-1,
+	    					</otherwise>
+	    				</choose>
+	    				1,
+	    				0	    				
+	    			</when>
+	    			<when test="menu_type == 'side'">
+	    				#{size},
+	    				0,
+	    				2,
+	    				#{only_mc_morning_flag}
+	    			</when>
+	    			<when test="menu_type == 'drink'">
+	    				#{size},
+	    				#{drink_type},
+	    				3,
+	    				#{only_mc_morning_flag}
+	    			</when>
+	    			<when test="menu_type == 'dessert'">
+	    				4,
+	    				#{only_mc_morning_flag}
+	    			</when>
+    			</choose>
+    		)
+    </insert>
+    
+    <select id="getAdminMenuList" parameterType="kioskmake.projectkiosk.domain.menu.Menu" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+    	SELECT
+			0 AS id,
+			'' as menu_type,
+		   '' AS menu_name,
+		   0 as price,
+		   0 as kcal,
+		   '' AS size,
+		   '' as image,
+		   0 as hamburger_category_code,
+		   0 as mc_lunch_flag,
+		   0 as set_menu_flag,
+		   0 as only_mc_morning_flag,
+			(select
+				COUNT(*)
+			from
+				hamburger_table ht
+				LEFT OUTER JOIN menu_category_table mct ON(mct.id = ht.menu_category_code)
+			<if test="menu_type != 'ALL'">
+			where
+				mct.id = #{menu_type}
+			</if>
+			)    	
+			
+			+
+			
+			(select
+				COUNT(*)
+			from
+				side_menu_table smt
+				LEFT OUTER JOIN menu_category_table mct ON(mct.id = smt.menu_category_code)
+			<if test="menu_type != 'ALL'">
+			where
+				mct.id = #{menu_type}
+			</if>
+			)    	
+			
+			+
+			
+			(select
+				COUNT(*)
+			from
+				drink_table dt
+				LEFT OUTER JOIN menu_category_table mct ON(mct.id = dt.menu_category_code)
+			<if test="menu_type != 'ALL'">
+			where
+				mct.id = #{menu_type}
+			</if>
+			)    	
+			
+			+
+			
+			(select
+				COUNT(*)
+			from
+				dessert_table dt
+				LEFT OUTER JOIN menu_category_table mct ON(mct.id = dt.menu_category_code)
+			<if test="menu_type != 'ALL'">
+			where
+				mct.id = #{menu_type}
+			</if>
+			)    	 AS total_count
+			
+	    union
+
+        (SELECT
+            ht.id,
+            mct.menu_category_name as menu_type,
+            ht.hamburger_name AS menu_name,
+            ht.price,
+            ht.kcal,
+            '' AS size,
+            ht.image,
+            ht.hamburger_category_code,
+            ht.mc_lunch_flag,
+                0 as set_menu_flag,
+            0 as only_mc_morning_flag,
+            0
+        FROM
+            hamburger_table ht
+            LEFT OUTER JOIN menu_category_table mct ON(mct.id = ht.menu_category_code)
+        <if test="menu_type != 'ALL'">
+        where
+            mct.id = #{menu_type}
+        </if>
+	
+	    UNION
+	
+        SELECT
+            smt.id,
+            mct.menu_category_name as menu_type,
+            smt.side_menu_name AS menu_name,
+            smt.price,
+            smt.kcal,
+            if(smt.size like 'none', '', smt.size) AS size,
+            smt.image,
+            0 as hamburger_category_code,
+            0 as mc_lunch_flag,
+            smt.set_menu_flag,
+            smt.only_mc_morning_flag,
+            0
+            FROM
+            side_menu_table smt
+            LEFT OUTER JOIN menu_category_table mct ON(mct.id = smt.menu_category_code)
+            <if test="menu_type != 'ALL'">
+                where
+                    mct.id = #{menu_type}
+            </if>
+        
+        UNION
+        
+        SELECT
+            dt.id,
+            mct.menu_category_name as menu_type,
+            dt.drink_name AS menu_name,
+            dt.price,
+            dt.kcal,
+            if(dt.size like 'none', '', dt.size) AS size,
+            dt.image,
+            0 as hamburger_category_code,
+            0 as mc_lunch_flag,
+            dt.set_menu_flag,
+            dt.only_mc_morning_flag,
+            0
+            FROM
+            drink_table dt
+            LEFT OUTER JOIN menu_category_table mct ON(mct.id = dt.menu_category_code)
+            <if test="menu_type != 'ALL'">
+                where
+                    mct.id = #{menu_type}
+            </if>
+        
+        UNION
+        
+        SELECT
+            dt.id,
+            mct.menu_category_name as menu_type,
+            dt.dessert_name AS menu_name,
+            dt.price,
+            dt.kcal,
+            '' AS size,
+            dt.image,
+            0 as hamburger_category_code,
+            0 as mc_lunch_flag,
+            0 as set_menu_flag,
+            dt.only_mc_morning_flag,
+            0
+        FROM
+            dessert_table dt
+            LEFT OUTER JOIN menu_category_table mct ON(mct.id = dt.menu_category_code)
+        <if test="menu_type != 'ALL'">
+        where
+            mct.id = #{menu_type}
+        </if>
+        LIMIT #{index}, 10);
+    </select>
+    
+    
+    <select id="getMenuDetail" parameterType="String" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+    	select
+            id,
+            price,
+            sales,
+            kcal,
+            image,
+    		<choose>
+                <when test="menu_type == 'burger'">
+                    menu_category_code,
+                    hamburger_name as menu_name,
+                    hamburger_category_code,
+                    mc_lunch_flag,
+                    'burger' as menu_category_name
+                </when>
+                <when test="menu_type == 'side'">
+                    menu_category_code,
+                    side_menu_name as menu_name,
+                    size,
+                    set_menu_flag,
+                    only_mc_morning_flag,
+                    'side' as menu_category_name,
+                    mc_morning_flag as is_mc_morning_flag
+                </when>
+                <when test="menu_type == 'drink'">
+                    menu_category_code,
+                    drink_name as menu_name,
+                    size,
+                    set_menu_flag,
+                    drink_category_code,
+                    only_mc_morning_flag,
+                    'drink' as menu_category_name,
+                    mc_morning_flag as is_mc_morning_flag
+                </when>
+                <otherwise>
+                    menu_category_code,
+                    dessert_name as menu_name,
+                    only_mc_morning_flag,
+                    'dessert' as menu_category_name,
+                    mc_morning_flag as is_mc_morning_flag
+                </otherwise>
+            </choose>
+	    from
+	    <choose>
+	    	<when test="menu_type == 'burger'">
+	    		hamburger_table
+	    	</when>
+	    	<when test="menu_type == 'side'">
+	    		side_menu_table
+	    	</when>
+	    	<when test="menu_type == 'drink'">
+	    		drink_table
+	    	</when>
+	    	<when test="menu_type == 'dessert'">
+	    		dessert_table
+	    	</when>
+	    </choose>
+		where
+            id = #{id}
+        GROUP BY
+            id;
+    </select>
+
+    <update id="updateMenuDetail" parameterType="kioskmake.projectkiosk.domain.menu.Menu">
+        UPDATE
+            <choose>
+                <when test="menu_type == 'burger'">
+                    hamburger_table
+                </when>
+                <when test="menu_type == 'side'">
+                    side_menu_table
+                </when>
+                <when test="menu_type == 'drink'">
+                    drink_table
+                </when>
+                <otherwise>
+                    dessert_table
+                </otherwise>
+            </choose>
+        SET
+            price = #{price},
+            sales = #{sales},
+            kcal = #{kcal},
+            <if test="image != null">
+                image = #{image},
+            </if>
+            <if test="size != null">
+                size = #{size},
+            </if>
+            <choose>
+                <when test="menu_type == 'burger'">
+                    hamburger_name = #{menu_name},
+                    mc_lunch_flag = #{mc_lunch_flag},
+                    hamburger_category_code = #{hamburger_category_code}
+                </when>
+                <when test="menu_type == 'side'">
+                    side_menu_name = #{menu_name},
+                    set_menu_flag = #{set_menu_flag},
+                    only_mc_morning_flag = #{only_mc_morning_flag},
+                    mc_morning_flag = #{is_mc_morning_flag}
+                </when>
+                <when test="menu_type == 'drink'">
+                    drink_name = #{menu_name},
+                    drink_category_code = #{drink_category_code},
+                    set_menu_flag = #{set_menu_flag},
+                    only_mc_morning_flag = #{only_mc_morning_flag},
+                    mc_morning_flag = #{is_mc_morning_flag}
+                </when>
+                <otherwise>
+                    dessert_name = #{menu_name},
+                    only_mc_morning_flag = #{only_mc_morning_flag},
+                    mc_morning_flag = #{is_mc_morning_flag}
+                </otherwise>
+            </choose>
+        WHERE
+            id = #{id}
+    </update>
+
+    <delete id="deleteMenu" parameterType="kioskmake.projectkiosk.domain.menu.Menu">
+        delete
+        from
+            <choose>
+                <when test="menu_type == 'burger'">
+                    hamburger_table
+                </when>
+                <when test="menu_type == 'side'">
+                    side_menu_table
+                </when>
+                <when test="menu_type == 'drink'">
+                    drink_table
+                </when>
+                <otherwise>
+                    dessert_table
+                </otherwise>
+            </choose>
+        where
+            id = #{id}
+    </delete>
+        
+
+    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>> Not ADMIN <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   -->
+
+
+
+    <!-- Burger   -->
+    <select id="findBurgerList" parameterType="HashMap" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+        SELECT
+            id,
+            hamburger_name as menu_name,
+            price,
+            kcal,
+            image,
+            mc_lunch_flag
+        FROM
+            hamburger_table
+        WHERE
+        <choose>
+            <when test="burger_type != 'all'">
+                hamburger_category_code = #{hamburger_category_code}
+            </when>
+            <otherwise>
+                hamburger_category_code != -1
+            </otherwise>
+        </choose>
+        ;
+    </select>
+
+    <select id="findBurgerByBurgerCode" parameterType="Integer" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+        SELECT
+            id,
+            'single' AS set_size,
+            hamburger_name,
+            kcal,
+            image,
+            price
+        FROM
+            hamburger_table
+        WHERE
+            id = #{id}
+
+        union
+
+        SELECT
+            ht.id,
+            'M' AS set_size,
+            ht.hamburger_name,
+            ht.kcal + dt.kcal + smt.kcal AS set_kcal,
+            image,
+            if((tt.start_time &lt; NOW()
+                    and
+                tt.end_time &gt; NOW())
+                    and
+                ht.mc_lunch_flag = 1,
+                ht.price + dt.price + smt.price - 500 , ht.price + dt.price + smt.price) AS price
+        FROM
+            hamburger_table ht
+            left outer join time_table tt ON (1 = 1)
+            LEFT OUTER JOIN (select
+                                price,
+                                kcal
+                            from
+                                drink_table
+                            where
+                                drink_name LIKE '코카콜라 제로'
+                                    AND
+                                size LIKE 'M') dt ON(1 = 1)
+            LEFT OUTER JOIN (select
+                                price,
+                                kcal
+                            from
+                                side_menu_table
+                            where
+                                side_menu_name LIKE '감자튀김'
+                                    AND
+                                size LIKE 'M') smt ON(1 = 1)
+        WHERE
+            ht.id = #{id} AND tt.id = 2
+
+        UNION
+
+        SELECT
+            ht.id,
+            'L' AS set_size,
+            ht.hamburger_name,
+            ht.kcal + dt.kcal + smt.kcal AS set_kcal,
+            image,
+            if((tt.start_time &lt; NOW()
+                    and
+                tt.end_time &gt; NOW())
+                    and
+                ht.mc_lunch_flag = 1,
+                ht.price + dt.price + smt.price - 500 , ht.price + dt.price + smt.price) AS price
+        FROM
+            hamburger_table ht
+            LEFT OUTER JOIN time_table tt ON(1 = 1)
+            LEFT OUTER JOIN (select
+                                price,
+                                kcal
+                            from
+                                drink_table
+                            where
+                                drink_name LIKE '코카콜라 제로'
+                                    AND
+                                size LIKE 'L') dt ON(1 = 1)
+            LEFT OUTER JOIN (select
+                                price,
+                                kcal
+                            from
+                                side_menu_table
+                            where
+                                side_menu_name LIKE '감자튀김'
+                                    AND
+                                size LIKE 'L') smt ON(1 = 1)
+        WHERE
+            ht.id = #{id} AND tt.id = 2;
+    </select>
+
+    <!-- Side & Drink & Dessert  -->
+    <select id="findMenuListByMenuType" parameterType="kioskmake.projectkiosk.domain.menu.Menu" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+        SELECT
+            id,
+            <choose>
+                <when test="menu_type == 'side'">
+                    if(size LIKE 'none', side_menu_name, concat(side_menu_name, ' - ', if(size LIKE 'M', '미디엄', '라지'))) AS menu_name,
+                    smt.price - smt_p.price AS price,
+                    smt.price as default_price,
+                </when>
+                <when test="menu_type == 'dessert'">
+                    dessert_name AS menu_name,
+                    price,
+                </when>
+                <otherwise>
+                    if(size LIKE 'none', drink_name, concat(drink_name, ' - ', if(size LIKE 'M', '미디엄', '라지'))) AS menu_name,
+                    dt.price - dt_p.price AS price,
+                    dt.price as default_price,
+                </otherwise>
+            </choose>
+            kcal,
+            image
+        FROM
+        <choose>
+            <when test="menu_type == 'side'">
+                side_menu_table smt
+                LEFT OUTER JOIN (select
+                                    price
+                                from
+                                    side_menu_table
+                                where
+                                    side_menu_name LIKE '감자튀김'
+                                        and
+                                    size = #{size}) smt_p ON (1 = 1)
+            </when>
+            <when test="menu_type == 'dessert'">
+                dessert_table
+            </when>
+            <otherwise>
+                drink_table dt
+                LEFT OUTER JOIN (select
+                                    price
+                                from
+                                    drink_table
+                                where
+                                    drink_name LIKE '코카콜라'
+                                        and
+                                    size = #{size}) dt_p ON (1 = 1)
+            </otherwise>
+        </choose>
+        WHERE
+            only_mc_morning_flag = #{mc_morning_flag}
+        <choose>
+            <when test="set_flag == true">
+                and
+                size LIKE #{size}
+                <if test="menu_type == 'side' or menu_type == 'drink'">
+                        and
+                    set_menu_flag = 1
+                </if>
+            </when>
+            <otherwise>
+                <choose>
+                    <when test="menu_type == 'coffee'">
+                        and
+                        drink_category_code = 2
+                    </when>
+                    <when test="menu_type == 'drink'">
+                        and
+                        drink_category_code = 1
+                    </when>
+                </choose>
+            </otherwise>
+        </choose>
+        ;
+    </select>
+    
+
+    <!-- McMorningBurger   -->
+    <select id="findMcMorningBurgerByBurgerCode" parameterType="Integer" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+        SELECT
+            id,
+            hamburger_name as menu_name,
+            price,
+            kcal,
+            image
+        FROM
+            hamburger_table
+        WHERE
+            hamburger_category_code = -1
+                and
+            id = #{id};
+    </select>
+
+    <select id="findMcMorningBurgerList" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+        SELECT
+            id,
+            hamburger_name as menu_name,
+            price,
+            kcal,
+            image,
+            true as mc_morning_flag
+        FROM
+            hamburger_table
+        WHERE
+            hamburger_category_code = -1;
+    </select>
+
+<!-- McMorningMenuList   -->
+    <select id="findMcMorningMenuListByMenuType" parameterType="kioskmake.projectkiosk.domain.menu.Menu" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+        SELECT
+            id,
+            <choose>
+                <when test="menu_type == 'side'">
+                    side_menu_name AS menu_name,
+                </when>
+                <otherwise>
+                    drink_name AS menu_name,
+                </otherwise>
+            </choose>
+            price,
+            price as default_price,
+            kcal,
+            image
+        FROM
+        <choose>
+            <when test="menu_type == 'side'">
+                side_menu_table
+            </when>
+            <otherwise>
+                drink_table
+            </otherwise>
+        </choose>
+        WHERE
+            mc_morning_flag = 1
+            <if test="set_flag == true">
+                    AND
+                set_menu_flag = 1
+                    and
+                (size LIKE 'm'
+                    or
+                size LIKE 'none')
+            </if>
+        ;
+    </select>
+
+<!--  Menu Change In Set Menu   -->
+    <select id="findChangeMenuInSet" parameterType="kioskmake.projectkiosk.domain.menu.Menu" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+        <choose>
+            <when test="menu_type == 'side' and mc_morning_flag == true">
+                SELECT
+                    smt.id,
+                    <choose>
+                        <when test="mc_morning_flag == true">
+                            smt.side_menu_name AS menu_name,
+                        </when>
+                        <otherwise>
+                            if(size LIKE 'none', smt.side_menu_name, concat(smt.side_menu_name, ' - ', if(smt.size LIKE 'M', '미디엄', '라지'))) AS menu_name,
+                        </otherwise>
+                    </choose>
+                    if(smt.price - smt2.price &lt; 0, 0, smt.price - smt2.price) AS price,
+                    smt.price as default_price,
+                    smt.kcal,
+                    smt.image
+                FROM
+                    side_menu_table smt
+                    LEFT OUTER JOIN(select
+                                        price
+                                    from
+                                        side_menu_table
+                                    where
+                                        side_menu_name LIKE '해시브라운') smt2 ON(1 = 1)
+                WHERE
+                    smt.set_menu_flag = 1
+                    <choose>
+                        <when test="mc_morning_flag == true">
+                                and
+                            smt.mc_morning_flag = 1
+                                and
+                            (size LIKE 'm'
+                                or
+                            size LIKE 'none')
+                        </when>
+                        <otherwise>
+                                and
+                            smt.mc_morning_flag = 0
+                        </otherwise>
+                    </choose>
+                ;
+            </when>
+            <when test="menu_type == 'side'">
+                SELECT
+                    smt.id,
+                    if(size LIKE 'none', smt.side_menu_name, concat(smt.side_menu_name, ' - ', if(smt.size LIKE 'M', '미디엄', '라지'))) AS menu_name,
+                    if(smt.price - smt2.price &lt; 0, 0, smt.price - smt2.price) AS price,
+                    smt.price as default_price,
+                    smt.kcal,
+                    smt.image
+                FROM
+                    side_menu_table smt
+                    LEFT OUTER JOIN(select
+                                        price
+                                    from
+                                        side_menu_table
+                                    where
+                                        side_menu_name LIKE '감자튀김'
+                                            and
+                                        size LIKE #{size}) smt2 ON(1 = 1)
+                WHERE
+                    set_menu_flag = 1
+                        and
+                    size LIKE #{size}
+                    <choose>
+                        <when test="mc_morning_flag == true">
+                            and
+                            smt.only_mc_morning_flag = 1
+                        </when>
+                        <otherwise>
+                            and
+                            smt.only_mc_morning_flag = 0
+                        </otherwise>
+                    </choose>
+                ;
+            </when>
+            <otherwise>
+                SELECT
+                    dt.id,
+                    <choose>
+                        <when test="mc_morning_flag == true">
+                            dt.drink_name AS menu_name,
+                        </when>
+                        <otherwise>
+                            if(dt.size LIKE 'none', dt.drink_name, concat(dt.drink_name, ' - ', if(dt.size LIKE 'M', '미디엄', '라지'))) AS menu_name,
+                        </otherwise>
+                    </choose>
+                    if(dt.price - dt2.price &lt; 0, 0, dt.price - dt2.price) AS price,
+                    dt.price as default_price,
+                    dt.kcal,
+                    dt.image
+                FROM
+                    drink_table dt
+                    LEFT OUTER JOIN(select
+                                        price
+                                    from
+                                        drink_table
+                                    where
+                                        drink_name LIKE '코카콜라'
+                                            and
+                                        size LIKE #{size}) dt2 ON(1 = 1)
+                WHERE
+                <choose>
+                    <when test="mc_morning_flag == true">
+                        dt.mc_morning_flag = 1
+                            and
+                        (size LIKE 'm'
+                            or
+                        size LIKE 'none')
+                    </when>
+                    <otherwise>
+                        size LIKE #{size}
+                            and
+                        dt.mc_morning_flag = 1
+                    </otherwise>
+                </choose>
+                ;
+            </otherwise>
+        </choose>
+    </select>
+
+<!--  Top Ranking Menu Load  -->
+    <select id="findTopRankingMenuList" resultType="kioskmake.projectkiosk.domain.menu.Menu">
+        SELECT
+            *
+        FROM
+            (SELECT
+                id,
+                hamburger_name as menu_name,
+                price,
+                sales,
+                kcal,
+                image,
+                menu_category_code,
+                hamburger_category_code
+            FROM
+                hamburger_table
+
+            UNION
+
+            SELECT
+                id,
+                dessert_name as menu_name,
+                price,
+                sales,
+                kcal,
+                image,
+                menu_category_code,
+                0
+            FROM
+                dessert_table
+            ORDER BY
+                sales desc
+            LIMIT 0 ,6) ranking_table
+        WHERE
+            sales > 0
+                and
+            hamburger_category_code != -1;
+    </select>
+</mapper>

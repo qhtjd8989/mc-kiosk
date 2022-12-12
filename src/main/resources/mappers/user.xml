@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kioskmake.projectkiosk.domain.user.UserRepository">
+
+	<select id="userCheck" parameterType="String" resultType="kioskmake.projectkiosk.domain.user.User">
+		select
+			id,
+			user_name,
+			user_phone_number,
+			point
+		from
+			user_point_table
+		where
+			user_name = #{user_name}
+			and user_phone_number = #{user_phone_number};
+	</select>
+	
+	<insert id="insertUser" parameterType="kioskmake.projectkiosk.domain.user.User">
+		insert into
+			user_point_table
+		values(
+			0,
+			#{user_name},
+			#{user_phone_number},
+			0
+		)
+	</insert>
+	
+	<update id="updateUserPoint" parameterType="kioskmake.projectkiosk.domain.user.User">
+		update
+			user_point_table
+		set
+		<choose>
+			<when test="point_status == 'earn'">
+				point = point + #{point}
+			</when>
+			<otherwise>
+				point = point - #{point}
+			</otherwise>
+		</choose>
+		where
+			id = #{id}
+	</update>
+
+</mapper>

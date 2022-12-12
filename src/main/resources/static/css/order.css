@@ -1,0 +1,455 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    
+    padding: 70px 80px 0px;
+
+    position: relative;
+}
+
+/*///////////////모달//////////////*/
+
+.point-modal {
+    width: 900px;
+    height: 1600px;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal-visible {
+    display: none;
+}
+
+.point-modal-user {
+    width: 900px;
+    display: flex;
+    justify-content: center;
+
+    margin-top: 250px;
+}
+
+.point-use-info {
+    width: 700px;
+    background-color: white;
+
+    padding: 80px;
+
+}
+
+.user-input p {
+    font-size: 25px;
+    margin-bottom: 5px;
+    
+}
+
+.user-input input {
+    width: 540px;
+    height: 50px;
+    font-size: 30px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.point-btns {
+    width: 540px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.po-btns button {
+    border: 1px solid #dbdbdb;
+    width: 100px;
+    height: 50px;
+}
+
+.hovers button:hover{
+    transition: 0.3s;
+    background-color: #dbdbdb;
+    color: white;
+}
+
+.having-point-info {
+    margin-top: 100px;
+}
+
+.having-point-info p {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.use-point-visible {
+    display: none;
+}
+
+.using-point input{
+    width: 540px;
+    height: 50px;
+    border: 1px solid #dbdbdb;
+
+    margin-bottom: 10px;
+}
+
+.points-input-box {
+    border: none;
+    outline: none;
+
+    width: 540px;
+    height: 50px;
+}
+
+.point-input {
+    border: 1px solid #dbdbdb;
+    
+    margin-bottom: 10px;
+    padding: 5px;
+
+    width: 540px;
+    height: 50px;
+
+
+    font-size: 30px;
+}
+
+.final-amount-confirm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.final-amount-confirm button {
+    width: 265px;
+    height: 50px;
+    border: 1px solid #dbdbdb;
+}
+
+.insert-modal {
+    width: 900px;
+    height: 1600px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.insert-modal-visible {
+    display: none;
+}
+
+.insert-modal > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 900px;
+    height: 1600px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.user-confirm {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+
+    padding: 40px ;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-confirm p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.user-confirm-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-confirm-btns button{
+    width: 155px;
+    height: 30px;
+    border: 1px solid #dbdbdb;
+}
+
+/*//////////////////////////////////////////*/
+
+.order-title-img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 180px;
+}
+
+.logo-img {
+    width: 70px;
+    height: 70px;
+}
+
+.order-title {
+    font-size: 50px;
+}
+
+main {
+    margin-top: 80px;
+
+    height: 945px;
+
+    overflow: auto;
+}
+
+.order-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.cancel-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 100px;
+    height: 35px;
+    background-color: white;
+
+    font-size: 16px;
+}
+
+.menu-img-info {
+    display: flex;
+
+    width: 300px;
+}
+
+.menu-img {
+    margin-right: 20px;
+
+    width: 80px;
+    height: 80px;
+    background-color: black;
+}
+
+.menu-info {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.menu-title, .total-kcal-span {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.menu-details {
+    font-size: 16px;
+}
+
+.details-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 120px;
+    height: 30px;
+    background-color: white;
+
+    font-size: 16px;
+}
+
+.set-count-modify {
+    display: flex;
+    justify-content: space-between;
+}
+
+.minus-button {
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    width: 35px;
+    height: 35px;
+
+    background-color: rgb(253, 228, 228);
+}
+
+.set-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    
+    width: 70px;
+    height: 35px;
+}
+
+.set-count-span {
+    font-size: 20px;
+}
+
+.plus-button {
+    border: 1px solid black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    width: 35px;
+    height: 35px;
+
+    background-color: white;
+}
+
+.menu-price {
+    width: 100px;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    margin-bottom: 180px;
+
+    width: 100%;
+}
+
+.sub-total-price, .total-price {
+    display: flex;
+    justify-content: space-between;
+
+    width: 450px;
+}
+
+.sub-total-price {
+    margin-bottom: 20px;
+}
+
+.sub-total-price span{
+    font-size: 20px;
+}
+
+
+.total-price span {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.order-related-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-button {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 50px;
+}
+
+.add-orders-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 220px;
+    height: 60px;
+    
+    background-color: white;
+    
+    font-size: 35px;
+}
+
+.order-complete-button {
+    border: 1px solid #fcb828;
+    border-radius: 5px;
+
+    width: 500px;
+    height: 60px;
+
+    font-size: 35px;
+
+    background-color: #fcb828;
+}
+
+.sub-button-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.point-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #fcb828;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    width: 200px;
+    height: 110px;
+
+    background-color: #fcb828;
+}
+
+.point-button span {
+    font-size: 16px;
+}
+
+.thickly {
+    font-weight: 700;
+}
+
+.fa-chevron-down {
+
+    margin-top: 8px;
+    font-size: 25px;
+}
+
+.footer-menu {
+    width: 500px;
+
+    position: absolute;
+    right: 80px;
+    bottom: 40px;
+}
+
+.footer-menu > div {
+    margin-bottom: 30px;
+}
+
+.load-main-page-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 248px;;
+    height: 40px;
+
+    background-color: white;
+}
+
+.help-menu-button {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 248px;;
+    height: 40px;
+
+    background-color: white;
+}
+
+.notice-span {
+    font-size: 12px;
+}
+
+.final-amount-confirm {
+    margin-top: 10px;
+}
+

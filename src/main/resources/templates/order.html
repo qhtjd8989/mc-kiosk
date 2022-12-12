@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/order.css">
+    <script src="https://kit.fontawesome.com/f859fe5fed.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div class="order-title-img">
+                <img src="/static/images/logo/logo.png" alt="" class="logo-img">
+                <span class="order-title">주문</span>
+            </div>
+        </header>
+        <main>
+            <div class="order-menu">
+                <button type="button" class="cancel-button">취소</button>
+                <div class="menu-img-info">
+                    <div class="menu-info">
+                        <span class="menu-title">불고기버거 - 세트 762kcal</span>
+                        <span class="menu-details">코카 콜라 제로 - 미디엄, 후렌치 후라이...</span>
+                        <button type="button" class="details-button">세부정보 표시</button>
+                    </div>
+                </div>
+                <div class="set-count-modify">
+                    <button class="minus-button" type="button">-</button>
+                    <div class="set-count">
+                        <span class="set-count-span">1</span>
+                    </div>
+                    <button class="plus-button" type="button">+</button>
+                </div>
+                <span class="menu-price">￦4,500</span>
+            </div>            
+        </main>
+        <footer>
+            <div class="price">
+                <div class="sub-total-price">
+                    <span>소계</span>
+                    <span class="sub-total-price-span">￦4,500</span>
+                </div>
+                <div class="total-price">
+                    <span>합계</span>
+                    <span class="total-price-span">￦4,500</span>
+                </div>
+            </div>
+            <div class="order-related-div">
+                <div class="order-button">
+                    <button type="button" class="add-orders-button">추가 주문</button>
+                    <button type="button" class="order-complete-button">주문 완료</button>
+                </div>
+                <div class="sub-button-div">
+                    <button type="button" class="point-button">
+                        <span>포인트를 적립하세요</span>
+                        <span class="thickly">결제 전 선택 필수</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="footer-menu">
+                        <div>
+                            <button class="load-main-page-button" type="button">처음으로</button>
+                            <button class="help-menu-button" type="button">
+                                <i class="fa-solid fa-wheelchair"></i>
+                                도움기능
+                            </button>
+                        </div>
+                        <span class="notice-span">
+                            일일 영양 권장량은 보통 2,000 칼로리이지만 필요한 칼로리는 다를 수 있습니다. 요청시 추가 영양정보를 제공해 드립니다.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="point-modal modal-visible">
+            <div class="point-modal-user">
+                <div class="point-use-info">
+                    <div class="user-info-input">
+                        <div class="name-input user-input">
+                            <p>이름</p>
+                            <input type="text" class="user-name">
+                        </div>
+                        <div class="tel-input user-input">
+                            <p>전화번호</p>
+                            <input type="text" class="user-phone-number">
+                        </div>
+                        <div class="point-btns">
+                            <div class="point-use-btns po-btns hovers">
+                                <button type="button" class="use-point user-check modal-point-button">사용</button>
+                                <button type="button" class="earn-points user-check modal-point-button">적립</button>
+                            </div>
+                            <div class="point-cancel-btn po-btns hovers">
+                                <button class="cancel-button">취소</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="having-point-info use-point-visible">
+                        <div>
+                            <div class="current-point">
+                                <p>현재 포인트</p>
+                                <div class="points-input-box">
+                                    <input class="current-point-value point-input" disabled>
+                                </div>
+                            </div>
+                            <div class="using-point">
+                                <p>사용할 포인트</p>
+                                <input type="text" class="using-point-input point-input">
+                            </div>
+                            <div class="final-amount">
+                                <p>최종 금액</p>
+                                <div class="points-input-box">
+                                    <input class="final-amount-input point-input" disabled>
+                                </div>
+                            </div>
+                            <div class="final-amount-confirm hovers">
+                                <button type="button" class="using-point-button">확인</button>
+                                <button type="button" class="cancel-button">취소</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="insert-modal insert-modal-visible">
+                    <div>
+                        <div class="user-confirm">
+                            <div>
+                                <p>등록되어 있지 않은 회원 입니다.</p>
+                                <p>등록 하시겠습니까?</p>
+                            </div>
+                            <div class="user-confirm-btns hovers">
+                                <button type="button" class="insert-user">예</button>
+                                <button type="button" class="insert-cancel-button">아니오</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/order.js"></script>
+</body>
+</html>
