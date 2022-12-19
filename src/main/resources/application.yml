@@ -33,7 +33,7 @@ mybatis:
 file:
 #  path: C:/project/workspace/git/kioskproject/upload/
 #  path: E:/project/workspace/git/kioskproject/upload/
-  path: /home/ubuntu/springboot/project/kioskproject/upload/
+  path: /home/ubuntu/springboot/project/mc-kiosk/upload/
 
 # log4jdbc, Mybatis Console Log
 logging:
