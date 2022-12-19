@@ -12,7 +12,7 @@ const orderHistory = document.querySelector(".order-history");
 
 totalPriceSpan.innerHTML = "";
 
-totalPriceSpan.innerHTML = localStorage.totalPrice == undefined ? "￦0" : localStorage.totalPrice;
+totalPriceSpan.innerHTML = localStorage.totalPrice == null ? "￦0" : localStorage.totalPrice;
 
 // nav 버튼 이벤트
 for (let i = 0; i < navBtnsList.length; i++) {//liList배열이기때문 선택할려면for문사용
